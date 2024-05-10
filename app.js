@@ -24,7 +24,7 @@ const initlizeDbAndReverse = async () => {
 
 initlizeDbAndReverse()
 
-const convertDbObjectToReversObject = dbObject => {
+const convertDbObjectToReversObject = (dbObject) => {
   return {
     stateId: dbObject.state_id,
     stateName: dbObject.state_name,
