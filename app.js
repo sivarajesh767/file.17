@@ -68,7 +68,7 @@ app.get('states/:stateId/', async (request, response) => {
 })
 
 app.get('/districts/:districtId/', async (request, response) => {
-  const {districtId} = request.params
+  const {districtId} = request.params;
   const getDistrictQuery = `
   SELECT
   *
@@ -102,7 +102,7 @@ app.get('/states/:stateId/stats/', async (request, response) => {
 })
 
 app.get('/districts/:districtId/details/', async (request, response)=>{
-  const {districtId, details} = request.body;
+  const {districtId} = request.params;
   const getDistrictsQuery = `
   SELECT
   *
@@ -124,7 +124,7 @@ app.post('/districts/', async (request, response)=>{
   INSERT INTO
   district( district_name, state_id, cases, curved, active, deaths )
   VALUES
-  ('${ districtsName }', '${stateId}', '${cases}', '${curved}', '${active}' '${deaths}');`
+  ('${ districtName }', '${stateId}', '${cases}', '${curved}', '${active}' '${deaths}');`
 
   const postArray = await database.run(postDistrictsQuery)
   response.send('District Successfully Added')
